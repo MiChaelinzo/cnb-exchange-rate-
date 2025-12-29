@@ -115,6 +115,60 @@
 }
 
 /* Table Styles */
+.search-container {
+  margin-bottom: 1.5rem;
+}
+
+.search-box {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto 0.75rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: #007bff;
+}
+
+.clear-button {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #e2e8f0;
+  border: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #666;
+  transition: background-color 0.2s;
+}
+
+.clear-button:hover {
+  background: #cbd5e0;
+}
+
+.results-info {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
 .table-container {
   background: white;
   border-radius: 0.5rem;
@@ -138,6 +192,22 @@
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+.exchange-rate-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.exchange-rate-table th.sortable:hover {
+  background: #e9ecef;
+}
+
+.sort-indicator {
+  margin-left: 0.5rem;
+  font-size: 0.7rem;
+  color: #007bff;
 }
 
 .exchange-rate-table td {
@@ -189,13 +259,13 @@
 }
 
 /* No data state */
-.no-data-container {
+.no-data-container, .no-results-container {
   text-align: center;
   padding: 3rem;
   color: #666;
 }
 
-.no-data-container p {
+.no-data-container p, .no-results-container p {
   margin: 0 0 1.5rem 0;
   font-size: 1.1rem;
 }

@@ -6986,42 +6986,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\micha\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "/home/runner/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\micha\\OneDrive\\Documents\\cnb-exchange-rate-\\backend\\ExchangeRateApi.Tests\\ExchangeRateApi.Tests.csproj",
+      "projectUniqueName": "/home/runner/work/cnb-exchange-rate-/cnb-exchange-rate-/backend/ExchangeRateApi.Tests/ExchangeRateApi.Tests.csproj",
       "projectName": "ExchangeRateApi.Tests",
-      "projectPath": "C:\\Users\\micha\\OneDrive\\Documents\\cnb-exchange-rate-\\backend\\ExchangeRateApi.Tests\\ExchangeRateApi.Tests.csproj",
-      "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\micha\\OneDrive\\Documents\\cnb-exchange-rate-\\backend\\ExchangeRateApi.Tests\\obj\\",
+      "projectPath": "/home/runner/work/cnb-exchange-rate-/cnb-exchange-rate-/backend/ExchangeRateApi.Tests/ExchangeRateApi.Tests.csproj",
+      "packagesPath": "/home/runner/.nuget/packages/",
+      "outputPath": "/home/runner/work/cnb-exchange-rate-/cnb-exchange-rate-/backend/ExchangeRateApi.Tests/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/home/runner/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\micha\\OneDrive\\Documents\\cnb-exchange-rate-\\backend\\ExchangeRateApi\\ExchangeRateApi.csproj": {
-              "projectPath": "C:\\Users\\micha\\OneDrive\\Documents\\cnb-exchange-rate-\\backend\\ExchangeRateApi\\ExchangeRateApi.csproj"
+            "/home/runner/work/cnb-exchange-rate-/cnb-exchange-rate-/backend/ExchangeRateApi/ExchangeRateApi.csproj": {
+              "projectPath": "/home/runner/work/cnb-exchange-rate-/cnb-exchange-rate-/backend/ExchangeRateApi/ExchangeRateApi.csproj"
             }
           }
         }
@@ -7036,7 +7026,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -7091,7 +7081,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

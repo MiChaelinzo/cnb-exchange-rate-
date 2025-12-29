@@ -30,33 +30,81 @@
     </div>
   }
 
-  @if (!isLoading() && !error() && exchangeRates().length > 0) {
-    <div class="table-container">
-      <table class="exchange-rate-table">
-        <thead>
-          <tr>
-            <th>Country</th>
-            <th>Currency</th>
-            <th class="amount-column">Amount</th>
-            <th class="code-column">Code</th>
-            <th class="rate-column">Rate (CZK)</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (rate of exchangeRates(); track rate.code) {
-            <tr>
-              <td class="country-cell">{{ rate.country }}</td>
-              <td class="currency-cell">{{ rate.currency }}</td>
-              <td class="amount-cell">{{ rate.amount }}</td>
-              <td class="code-cell">
-                <span class="currency-code">{{ rate.code }}</span>
-              </td>
-              <td class="rate-cell">{{ rate.rate | number:'1.3-3' }}</td>
-            </tr>
-          }
-        </tbody>
-      </table>
+  @if (!isLoading() && !error()) {
+    <div class="search-container">
+      <div class="search-box">
+        <input 
+          type="text" 
+          placeholder="Search by country, currency, or code..." 
+          [value]="searchTerm()"
+          (input)="onSearchChange($any($event.target).value)"
+          class="search-input"
+          aria-label="Search exchange rates"
+        />
+        @if (searchTerm()) {
+          <button class="clear-button" (click)="clearSearch()" aria-label="Clear search">
+            ✕
+          </button>
+        }
+      </div>
+      <div class="results-info">
+        Showing {{ exchangeRates().length }} of {{ allRates().length }} currencies
+      </div>
     </div>
+
+    @if (exchangeRates().length > 0) {
+      <div class="table-container">
+        <table class="exchange-rate-table">
+          <thead>
+            <tr>
+              <th class="sortable" (click)="sortBy('country')">
+                Country
+                @if (sortField() === 'country') {
+                  <span class="sort-indicator">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+                }
+              </th>
+              <th class="sortable" (click)="sortBy('currency')">
+                Currency
+                @if (sortField() === 'currency') {
+                  <span class="sort-indicator">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+                }
+              </th>
+              <th class="amount-column">Amount</th>
+              <th class="code-column sortable" (click)="sortBy('code')">
+                Code
+                @if (sortField() === 'code') {
+                  <span class="sort-indicator">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+                }
+              </th>
+              <th class="rate-column sortable" (click)="sortBy('rate')">
+                Rate (CZK)
+                @if (sortField() === 'rate') {
+                  <span class="sort-indicator">{{ sortDirection() === 'asc' ? '▲' : '▼' }}</span>
+                }
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (rate of exchangeRates(); track rate.code) {
+              <tr>
+                <td class="country-cell">{{ rate.country }}</td>
+                <td class="currency-cell">{{ rate.currency }}</td>
+                <td class="amount-cell">{{ rate.amount }}</td>
+                <td class="code-cell">
+                  <span class="currency-code">{{ rate.code }}</span>
+                </td>
+                <td class="rate-cell">{{ rate.rate | number:'1.3-3' }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    } @else {
+      <div class="no-results-container">
+        <p>No currencies match your search "{{ searchTerm() }}"</p>
+        <button class="retry-button" (click)="clearSearch()">Clear Search</button>
+      </div>
+    }
   }
 
   @if (!isLoading() && !error() && exchangeRates().length === 0) {
