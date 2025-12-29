@@ -78,7 +78,7 @@ This implementation plan breaks down the fullstack exchange rate application int
     - Implement global exception handling middleware
     - _Requirements: 2.4, 5.1, 5.4_
 
-  - [ ] 4.3 Write property test for error handling
+  - [x] 4.3 Write property test for error handling
 
     - **Property 3: Error Handling Consistency**
     - **Validates: Requirements 1.4, 2.4, 5.1, 5.2, 5.4**
