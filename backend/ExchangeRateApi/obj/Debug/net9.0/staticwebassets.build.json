@@ -1,12 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "TLQNa+IlNRCGwyED+APadNmTw2ldNnKMClhafZURN6E=",
-  "Source": "ExchangeRateApi",
-  "BasePath": "_content/ExchangeRateApi",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
-}
+{"Version":1,"Hash":"pHavTeq78FIjCi4saxx45DdaMRWZJ7fxQut7la593HU=","Source":"ExchangeRateApi","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
