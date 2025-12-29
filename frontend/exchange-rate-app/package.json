@@ -28,7 +28,6 @@
   "private": true,
   "packageManager": "npm@11.1.0",
   "dependencies": {
-    "@angular/common": "^21.0.0",
     "@angular/compiler": "^21.0.0",
     "@angular/core": "^21.0.0",
     "@angular/forms": "^21.0.0",
@@ -41,6 +40,7 @@
   "devDependencies": {
     "@angular/build": "^21.0.4",
     "@angular/cli": "^21.0.4",
+    "@angular/common": "^21.0.6",
     "@angular/compiler-cli": "^21.0.0",
     "@angular/platform-browser-dynamic": "^21.0.6",
     "fast-check": "^4.5.2",

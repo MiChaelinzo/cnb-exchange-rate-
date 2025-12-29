@@ -62,7 +62,8 @@ This implementation plan breaks down the fullstack exchange rate application int
     - Configure allowed origins, methods, and headers
     - _Requirements: 2.5_
 
-  - [ ]* 3.5 Write property test for CORS configuration
+  - [x] 3.5 Write property test for CORS configuration
+
     - **Property 5: CORS Configuration**
     - **Validates: Requirements 2.5**
 
@@ -77,7 +78,8 @@ This implementation plan breaks down the fullstack exchange rate application int
     - Implement global exception handling middleware
     - _Requirements: 2.4, 5.1, 5.4_
 
-  - [ ]* 4.3 Write property test for error handling
+  - [ ] 4.3 Write property test for error handling
+
     - **Property 3: Error Handling Consistency**
     - **Validates: Requirements 1.4, 2.4, 5.1, 5.2, 5.4**
 
@@ -101,7 +103,8 @@ This implementation plan breaks down the fullstack exchange rate application int
     - Configure property-based testing with Vitest
     - _Requirements: Testing framework setup_
 
-  - [ ]* 6.4 Write property test for HTTP integration
+  - [x] 6.4 Write property test for HTTP integration
+
     - **Property 7: Frontend HTTP Integration**
     - **Validates: Requirements 3.2**
 
@@ -112,7 +115,8 @@ This implementation plan breaks down the fullstack exchange rate application int
     - Add responsive design for mobile compatibility
     - _Requirements: 3.1, 3.3_
 
-  - [ ]* 7.2 Write property test for data display
+  - [x] 7.2 Write property test for data display
+
     - **Property 6: Frontend Data Display**
     - **Validates: Requirements 3.1, 3.3**
 
@@ -122,7 +126,8 @@ This implementation plan breaks down the fullstack exchange rate application int
     - Implement retry functionality for failed requests
     - _Requirements: 3.4, 3.5, 5.3, 5.5_
 
-  - [ ]* 7.4 Write property test for UI state management
+  - [x] 7.4 Write property test for UI state management
+
     - **Property 8: UI State Management**
     - **Validates: Requirements 3.4, 3.5, 5.3, 5.5**
 
@@ -138,7 +143,8 @@ This implementation plan breaks down the fullstack exchange rate application int
     - Configure API base URL through environment variables
     - _Requirements: 4.2, 4.3_
 
-  - [ ]* 8.3 Write property test for configuration management
+  - [x] 8.3 Write property test for configuration management
+
     - **Property 9: Configuration Management**
     - **Validates: Requirements 4.1, 4.2, 4.3, 4.4**
 
@@ -149,7 +155,8 @@ This implementation plan breaks down the fullstack exchange rate application int
     - Implement consistent response formats
     - _Requirements: 6.2_
 
-  - [ ]* 9.2 Write property test for REST conventions
+  - [x] 9.2 Write property test for REST conventions
+
     - **Property 10: REST API Conventions**
     - **Validates: Requirements 6.2**
 
@@ -160,7 +167,8 @@ This implementation plan breaks down the fullstack exchange rate application int
     - Test error scenarios and recovery
     - _Requirements: All integration requirements_
 
-  - [ ]* 10.2 Write integration tests
+  - [x] 10.2 Write integration tests
+
     - Test complete data flow from CNB to frontend display
     - Verify error handling across the entire stack
     - _Requirements: All requirements_
