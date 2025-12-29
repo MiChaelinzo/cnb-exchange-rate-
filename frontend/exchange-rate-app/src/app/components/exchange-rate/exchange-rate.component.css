@@ -1,0 +1,256 @@
+.exchange-rate-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  color: #1a1a1a;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+}
+
+.update-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.update-date, .sequence {
+  background: #f5f5f5;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+}
+
+/* Loading States */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: #666;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error States */
+.error-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.error-message {
+  text-align: center;
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  max-width: 500px;
+}
+
+.error-message h3 {
+  color: #c53030;
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+}
+
+.error-message p {
+  color: #742a2a;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.retry-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.retry-button:hover {
+  background: #0056b3;
+}
+
+.retry-icon {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Table Styles */
+.table-container {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.exchange-rate-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.exchange-rate-table th {
+  background: #f8f9fa;
+  color: #495057;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.exchange-rate-table td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #dee2e6;
+  vertical-align: middle;
+}
+
+.exchange-rate-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.exchange-rate-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Column-specific styles */
+.amount-column, .code-column, .rate-column {
+  text-align: center;
+  width: 100px;
+}
+
+.amount-cell, .code-cell, .rate-cell {
+  text-align: center;
+  font-weight: 500;
+}
+
+.country-cell {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.currency-cell {
+  color: #4a5568;
+}
+
+.currency-code {
+  background: #e2e8f0;
+  color: #2d3748;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.rate-cell {
+  color: #2b6cb0;
+  font-weight: 600;
+}
+
+/* No data state */
+.no-data-container {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+}
+
+.no-data-container p {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .exchange-rate-container {
+    padding: 0.5rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .update-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .exchange-rate-table {
+    min-width: 600px;
+  }
+
+  .exchange-rate-table th,
+  .exchange-rate-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .country-cell,
+  .currency-cell {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .exchange-rate-table th,
+  .exchange-rate-table td {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.8rem;
+  }
+
+  .currency-code {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+}

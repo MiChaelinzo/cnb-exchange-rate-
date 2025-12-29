@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # Backend API service
+  api:
+    build:
+      context: ./backend/ExchangeRateApi
+      dockerfile: Dockerfile
+    container_name: exchange-rate-api
+    ports:
+      - "5000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - CNBAPI__TIMEOUTSECONDS=60
+      - CNBAPI__MAXRETRIES=5
+      - CORS__ALLOWEDORIGINS__0=http://localhost:4200
+      - CORS__ALLOWEDORIGINS__1=http://localhost:3000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/exchangerates"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - exchange-rate-network
+
+  # Frontend web service
+  web:
+    build:
+      context: ./frontend/exchange-rate-app
+      dockerfile: Dockerfile
+      args:
+        - API_BASE_URL=http://localhost:5000/api
+    container_name: exchange-rate-web
+    ports:
+      - "4200:8080"
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - exchange-rate-network
+
+networks:
+  exchange-rate-network:
+    driver: bridge
+
+# Example production override file (docker-compose.prod.yml):
+# version: '3.8'
+# services:
+#   api:
+#     environment:
+#       - ASPNETCORE_ENVIRONMENT=Production
+#       - CNBAPI__TIMEOUTSECONDS=120
+#       - CORS__ALLOWEDORIGINS__0=https://yourdomain.com
+#     ports:
+#       - "80:8080"
+#   
+#   web:
+#     build:
+#       args:
+#         - API_BASE_URL=https://api.yourdomain.com
+#     ports:
+#       - "443:8080"
