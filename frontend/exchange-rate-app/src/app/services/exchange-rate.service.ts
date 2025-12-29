@@ -24,17 +24,23 @@ export class ExchangeRateService {
   getExchangeRates(): Observable<ExchangeRateResponse> {
     // Check if cache is valid
     if (this.cache && Date.now() - this.cache.timestamp < this.CACHE_DURATION) {
-      console.log('Returning cached exchange rates');
+      if (!environment.production) {
+        console.log('Returning cached exchange rates');
+      }
       return of(this.cache.data);
     }
 
     // If there's already a pending request, return it to avoid duplicate requests
     if (this.pendingRequest) {
-      console.log('Returning pending request for exchange rates');
+      if (!environment.production) {
+        console.log('Returning pending request for exchange rates');
+      }
       return this.pendingRequest;
     }
 
-    console.log('Fetching fresh exchange rates from API');
+    if (!environment.production) {
+      console.log('Fetching fresh exchange rates from API');
+    }
     
     this.pendingRequest = this.http.get<ExchangeRateResponse>(this.apiUrl)
       .pipe(
@@ -48,9 +54,11 @@ export class ExchangeRateService {
             data: response,
             timestamp: Date.now()
           };
-          console.log('Exchange rates cached successfully');
+          if (!environment.production) {
+            console.log('Exchange rates cached successfully');
+          }
         }),
-        catchError(this.handleError),
+        catchError(this.handleError.bind(this)),
         shareReplay(1), // Share the result with multiple subscribers
         tap({
           complete: () => {
@@ -72,7 +80,9 @@ export class ExchangeRateService {
    */
   clearCache(): void {
     this.cache = null;
-    console.log('Exchange rates cache cleared');
+    if (!environment.production) {
+      console.log('Exchange rates cache cleared');
+    }
   }
 
   /**
@@ -115,7 +125,9 @@ export class ExchangeRateService {
       }
     }
     
-    console.error('ExchangeRateService error:', error);
+    if (!environment.production) {
+      console.error('ExchangeRateService error:', error);
+    }
     return throwError(() => new Error(errorMessage));
   }
 }

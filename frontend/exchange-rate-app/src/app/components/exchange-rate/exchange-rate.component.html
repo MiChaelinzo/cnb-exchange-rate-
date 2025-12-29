@@ -34,10 +34,11 @@
     <div class="search-container">
       <div class="search-box">
         <input 
+          #searchInput
           type="text" 
           placeholder="Search by country, currency, or code..." 
           [value]="searchTerm()"
-          (input)="onSearchChange($any($event.target).value)"
+          (input)="onSearchChange(searchInput.value)"
           class="search-input"
           aria-label="Search exchange rates"
         />

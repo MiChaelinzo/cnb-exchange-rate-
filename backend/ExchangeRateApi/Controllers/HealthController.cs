@@ -13,6 +13,7 @@ namespace ExchangeRateApi.Controllers;
 public class HealthController : ControllerBase
 {
     private readonly ILogger<HealthController> _logger;
+    private static readonly DateTime _startTime = DateTime.UtcNow;
 
     public HealthController(ILogger<HealthController> logger)
     {
@@ -35,7 +36,7 @@ public class HealthController : ControllerBase
             Status = "Healthy",
             Timestamp = DateTime.UtcNow,
             Version = "1.0.0",
-            Uptime = TimeSpan.FromMilliseconds(Environment.TickCount64)
+            Uptime = DateTime.UtcNow - _startTime
         };
 
         return Ok(response);
@@ -57,11 +58,11 @@ public class HealthController : ControllerBase
             Status = "Healthy",
             Timestamp = DateTime.UtcNow,
             Version = "1.0.0",
-            Uptime = TimeSpan.FromMilliseconds(Environment.TickCount64),
-            Environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production",
-            MachineName = Environment.MachineName,
-            ProcessorCount = Environment.ProcessorCount,
-            WorkingSet = Environment.WorkingSet / 1024 / 1024 // Convert to MB
+            Uptime = DateTime.UtcNow - _startTime,
+            Environment = System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production",
+            MachineName = System.Environment.MachineName,
+            ProcessorCount = System.Environment.ProcessorCount,
+            WorkingSet = System.Environment.WorkingSet / 1024 / 1024 // Convert to MB
         };
 
         return Ok(response);
